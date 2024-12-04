@@ -11,5 +11,7 @@ for city, group in data.groupby('City'):
     min_pm10 = group['PM10'].min()
     result[city] = [avg_aqi, max_pm25, min_pm10]
 
+result_df = pd.DataFrame.from_dict(result, orient='index', columns=['Average AQI', 'Max PM2.5', 'Min PM10'])
 
-print(result)
+
+print(result_df.to_string())
